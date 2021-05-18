@@ -1,0 +1,14 @@
+.AllChats {
+  background-color: #f0f2f5;
+  height: 80vh;
+  padding: 0.75rem;
+  overflow-y: scroll;
+  .UserBox {
+    font-size: 1rem;
+    border-radius: 10px;
+    margin: 0.1rem auto;
+    padding: .75rem;
+    justify-content: flex-start;
+    text-transform: capitalize;
+  }
+}

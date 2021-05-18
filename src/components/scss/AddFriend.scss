@@ -1,0 +1,18 @@
+.AddFriend {
+  transition: all cubic-bezier(.68,-0.55,.27,1.55) 1.5s;
+  background-color: rgba(224, 224, 224, 0.9);
+  z-index: 10;
+  position: absolute;
+  width: calc(100vw - 360px);
+  height: 100vh;
+  top: 0;
+  padding-top: 2rem;
+
+  &-search {
+    padding: 1.5rem;
+    width: 100%;
+    >div{
+      margin: 10px 0;
+    }
+  }
+}
