@@ -1,47 +1,33 @@
 import React, {useEffect, useRef, useState} from 'react';
 import apis from "../../api/api";
+import BasicScrollToBottom from "react-scroll-to-bottom";
+import {TabScrollButton} from "@material-ui/core";
 
-const Messages = ({conversationId, reload, sender, receiver, pusher}) => {
+const Messages = ({conversationId, reload, sender, receiver, newMessage}) => {
     const [messages, setMessages] = useState([]);
-
 
     const scrollHere = useRef();
 
-    const fetchMessage = async () => {
-        await apis.getMessage(conversationId)
+    useEffect(() => {
+        (async () => {
+            await setMessages(prevState => [...prevState, newMessage]);
+            scrollHere.current.scrollIntoView({behavior: 'smooth'});
+        })();
+    }, [newMessage]);
+
+
+    useEffect(() => {
+        const fetchConversation = async () =>{
+            await apis.getMessage(conversationId)
             .then(r => {
                 if (r.status) setMessages(r.data[0].messages);
             })
             .catch(err => console.log(err));
-    };
-
-    useEffect(() => {
-        fetchMessage().then(() => {
+        }
+        fetchConversation().then(()=>{
             scrollHere.current.scrollIntoView({behavior: 'smooth'});
         });
     }, [conversationId]);
-
-    useEffect(() => {
-        //Pusher.logToConsole = true;
-        /*
-        * FIXME
-        *  Infinite loop is created
-        * */
-        let channel = pusher.subscribe('post-events_' + conversationId);
-        channel.bind('postAction', async (data) => {
-            const newMessage = await data.newMessage;
-            setMessages(prevState => [...prevState, newMessage]);
-            scrollHere.current.scrollIntoView({behavior: 'smooth'});
-        })
-
-
-
-        return () => {
-            channel.unbind_all();
-            channel.unsubscribe();
-        }
-
-    }, [messages]);
 
     return (
         <div className="Chat-message flex flex-col">

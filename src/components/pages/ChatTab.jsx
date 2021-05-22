@@ -13,7 +13,7 @@ const ChatTab = () => {
     const [conversationId, setConversationId] = useState("");
     const [chat, setChat] = useState("");
     const [reload, setReload] = useState(false);
-    const [pusher, setPusher] = useState(new Pusher("", undefined));
+    const [newMessage, setNewMessage] = useState({});
 
     const buttons = [
 
@@ -57,8 +57,22 @@ const ChatTab = () => {
     }, [chatUser, user]);
 
     useEffect(() => {
-        setPusher(new Pusher(process.env.REACT_APP_PUSHER_APP_KEY, {cluster: process.env.REACT_APP_PUSHER_CLUSTER}));
+
+        const pusher = new Pusher(process.env.REACT_APP_PUSHER_APP_KEY, {cluster: process.env.REACT_APP_PUSHER_CLUSTER});
+        const channel = pusher.subscribe('post-events_' + conversationId);
+
+        channel.bind('postAction', (data) => {
+            const {newMessage} = data;
+            setNewMessage(newMessage);
+        })
+
+        return () => {
+            channel.unbind_all();
+            channel.unsubscribe();
+        }
+
     }, [conversationId]);
+
 
     const triggerReload = async () => {
         setReload(!reload);
@@ -99,7 +113,7 @@ const ChatTab = () => {
                         <Messages reload={reload}
                                   receiver={chatUser._id}
                                   sender={user._id}
-                                  pusher={pusher}
+                                  newMessage={newMessage}
                                   conversationId={conversationId}/>
                         <div className="Message-type flex flex-ai-c flex-jc-c">
                             <TextareaAutosize rowsMin={1} rowsMax={1}
