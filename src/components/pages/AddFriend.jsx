@@ -40,7 +40,10 @@ const AddFriend = ({close, display, handleRequest, requests}) => {
     };
 
     return (
-        <div style={{left: display ? "360px" : "100%"}} className={"AddFriend flex flex-col"}>
+        <div style={{
+            left: display ? "360px" : "100%",
+            visibility: !display && "hidden"
+        }} className={"AddFriend flex flex-col"}>
             <div className="AddFriend-search">
                 <div className={"flex"}>
                     <TextField fullWidth label="Username"

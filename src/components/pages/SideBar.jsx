@@ -5,18 +5,18 @@ import '../scss/SideBar.scss';
 import {Add, Close, MoreHoriz} from "@material-ui/icons";
 import {useSelector} from "react-redux";
 import AddFriend from "./AddFriend";
-import {IconButton} from "@material-ui/core";
+import {Drawer, IconButton} from "@material-ui/core";
 import apis from "../../api/api";
 
 const SideBar = () => {
     const {user} = useSelector(state => state.chatAppReducer);
 
-    const [requests,setRequests] = useState([]);
+    const [requests, setRequests] = useState([]);
 
     const [searchFriend, setSearchFriend] = useState(false);
 
     const buttons = [
-        <IconButton key={1} onClick={() => {
+        <IconButton  key={1} onClick={() => {
             setSearchFriend(!searchFriend)
         }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
             {
@@ -35,39 +35,39 @@ const SideBar = () => {
             const requests = {
                 requests: user.requests
             }
-            apis.getRequestUser(requests).then(r=>{
+            apis.getRequestUser(requests).then(r => {
                 setRequests(r.data.users);
-            }).catch(err=>{
+            }).catch(err => {
                 console.log(err)
             })
         }
     }, [user]);
 
-    const handleRequest = (id,type) => {
+    const handleRequest = (id, type) => {
         const request = {
             id: id,
             type: type
         }
-        apis.confirmReq(request).then(r=>{
+        apis.confirmReq(request).then(r => {
             console.log(r)
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err);
         })
     }
 
     return (
-        <div className={"SideBar flex flex-col "}>
-            <div className="SideBar-wrapper flex flex-col">
-                <TopNav user={user} buttons={buttons}/>
-                <div className="SideBar-search flex flex-ai-c flex-jc-c">
-                    <input type="search" placeholder={"Search or Start a new Chat"}/>
-                </div>
+        <div className={"SideBar flex flex-col"}>
+            <TopNav user={user} buttons={buttons}/>
+            <div className="inputBox SideBar-search flex flex-ai-c flex-jc-c">
+                <input type="search" placeholder={"Search or Start a new Chat"}/>
             </div>
             <AllChats/>
             <AddFriend display={searchFriend}
                        handleRequest={handleRequest}
                        requests={requests}
-                       close={() => { setSearchFriend(false) }}/>
+                       close={() => {
+                           setSearchFriend(false)
+                       }}/>
 
         </div>
     );

@@ -105,7 +105,7 @@ const ChatTab = () => {
                 !active
                     ?
                     <>
-                        <p>Click on a chat to start chatting</p>
+                        <p className={"ChatTab-noTabOpen"}>Click on a chat to start chatting</p>
                     </>
                     :
                     <div className="Chat flex flex-col">

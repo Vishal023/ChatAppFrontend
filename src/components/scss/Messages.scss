@@ -1,0 +1,30 @@
+.Messages{
+  flex-grow: 1;
+  .Messages-container {
+    overflow-y: auto;
+    height: calc(100vh - 56px - 80px);
+    .Message {
+      padding: 1.125rem;
+      margin: 1.5rem;
+      color: #131313;
+      letter-spacing: 1px;
+      font-size: 1.25rem;
+      word-break: break-all;
+      white-space: normal;
+    }
+
+    .sender {
+      border-radius: 10px 10px 10px 10px;
+      background-color: #dddddd;
+      max-width: 50%;
+      margin-left: auto;
+    }
+
+    .receiver {
+      border-radius: 10px 10px 10px 10px;
+      background-color: #e0ece4;
+      max-width: 50%;
+      margin-right: auto;
+    }
+  }
+}

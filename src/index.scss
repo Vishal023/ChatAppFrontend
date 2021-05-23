@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -5,6 +6,7 @@
 body{
   font-size: 100%;
   overflow: hidden;
+  font-family: 'Padauk', sans-serif;
 }
 
 .flex {
