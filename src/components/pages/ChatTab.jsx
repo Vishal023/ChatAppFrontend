@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import '../scss/ChatTab.scss';
-import {MoreHoriz, Search, Send} from "@material-ui/icons";
+import {ArrowBack, MoreHoriz, Search, Send} from "@material-ui/icons";
 import {Button, IconButton, TextareaAutosize} from "@material-ui/core";
 import TopNav from "./TopNav";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import apis from "../../api/api";
 import Messages from "./Messages";
 import Pusher from "pusher-js";
+import {toggleDisplay} from "../../actions/action";
 
 const ChatTab = () => {
     const [active, setActive] = useState(false);
@@ -14,6 +15,9 @@ const ChatTab = () => {
     const [chat, setChat] = useState("");
     const [reload, setReload] = useState(false);
     const [newMessage, setNewMessage] = useState({});
+    const {userDisplay: display} = useSelector(state => state.chatAppReducer);
+
+    const dispatch = useDispatch();
 
     const buttons = [
 
@@ -27,7 +31,11 @@ const ChatTab = () => {
         }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
             <MoreHoriz/>
         </IconButton>,
-
+        <IconButton key={5} onClick={() => {
+            dispatch(toggleDisplay());
+        }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
+            <ArrowBack/>
+        </IconButton>,
     ];
 
     const {chatUser} = useSelector(state => state.chatAppReducer);
@@ -100,9 +108,9 @@ const ChatTab = () => {
 
 
     return (
-        <div className={"ChatTab flex flex-ai-c flex-jc-c"}>
+        <div style={{display: !display && "none"}} className={"ChatTab flex flex-ai-c flex-jc-c"}>
             {
-                !active
+                !active && !display
                     ?
                     <>
                         <p className={"ChatTab-noTabOpen"}>Click on a chat to start chatting</p>

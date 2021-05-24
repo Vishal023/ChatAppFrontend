@@ -19,3 +19,10 @@
     }
   }
 }
+
+@media only screen and (max-width: 720px) {
+  .SideBar{
+    flex-grow: 1;
+    width: 100%;
+  }
+}

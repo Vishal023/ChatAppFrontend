@@ -1,5 +1,8 @@
+/**
+ * FIXME FOR OVERFLOW I AM CAUSING
+*/
 .AddFriend {
-  transition: all cubic-bezier(.68,-0.55,.27,1.55)  1.2s;
+  transition: all cubic-bezier(.68, -0.55, .27, 1.55) 1.2s;
   background-color: rgba(224, 224, 224, 0.9);
   z-index: 10;
   position: absolute;
@@ -11,7 +14,8 @@
   &-search {
     padding: 1.5rem;
     width: 100%;
-    >div{
+
+    > div {
       margin: 10px 0;
     }
   }
@@ -21,7 +25,8 @@
   padding: 0.75rem;
   letter-spacing: 2px;
   font-size: 1.5rem;
-  font-family: Calibri,sans-serif;
+  font-family: Calibri, sans-serif;
+
   .MuiButtonGroup-root {
     margin: 10px;
   }

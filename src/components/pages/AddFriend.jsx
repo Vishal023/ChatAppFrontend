@@ -1,3 +1,6 @@
+/**
+ * FIXME FOR OVERFLOW I AM CAUSING
+ */
 import React, {useEffect, useState} from 'react';
 import '../scss/AddFriend.scss';
 import {Avatar, Button, ButtonGroup, Snackbar, TextField} from "@material-ui/core";

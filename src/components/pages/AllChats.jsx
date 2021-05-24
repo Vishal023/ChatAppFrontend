@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react';
 import '../scss/AllChats.scss';
 import {Avatar, Badge, Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrentUser} from "../../actions/action";
+import {setCurrentUser, toggleDisplay} from "../../actions/action";
 import apis from "../../api/api";
 
 const AllChats = () => {
     const [users, setUser] = useState([]);
 
     const {user} = useSelector(state => state.chatAppReducer);
+
 
     useEffect(() => {
         if (user) {
@@ -24,6 +25,7 @@ const AllChats = () => {
 
     const setChatUser = (idx) => {
         dispatch(setCurrentUser(users[idx]));
+        dispatch(toggleDisplay());
     };
 
     return (

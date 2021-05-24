@@ -38,3 +38,11 @@
     }
   }
 }
+@media only screen and (max-width: 720px) {
+  .ChatTab{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 1000000000000000;
+  }
+}

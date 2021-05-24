@@ -1,6 +1,7 @@
 export const initialState = {
     user: null,
-    chatUser: null
+    chatUser: null,
+    userDisplay: false,
 };
 
 export const chatAppReducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ export const chatAppReducer = (state = initialState, action) => {
             return {
                 ...state,
                 chatUser: action.payload
+            }
+        case "SET_DISPLAY_USER":
+            return {
+                ...state,
+                userDisplay: !state.userDisplay
             }
         default:
             return state;

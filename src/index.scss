@@ -3,10 +3,14 @@
   box-sizing: border-box;
   margin: 0;
 }
+body,html{
+  overflow: hidden;
+}
 body{
   font-size: 100%;
-  overflow: hidden;
+  background-color: rebeccapurple;
   font-family: 'Padauk', sans-serif;
+  display: flex;
 }
 
 .flex {
