@@ -5,7 +5,7 @@ import '../scss/SideBar.scss';
 import {Add, Close, MoreHoriz} from "@material-ui/icons";
 import {useSelector} from "react-redux";
 import AddFriend from "./AddFriend";
-import {Drawer, IconButton} from "@material-ui/core";
+import {IconButton} from "@material-ui/core";
 import apis from "../../api/api";
 
 const SideBar = () => {

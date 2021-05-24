@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../scss/AllChats.scss';
-import {Avatar, Badge, Button} from "@material-ui/core";
+import {Avatar, Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentUser, toggleDisplay} from "../../actions/action";
 import apis from "../../api/api";

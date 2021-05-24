@@ -2,9 +2,6 @@ import React, {useEffect, useRef, useState} from 'react';
 import apis from "../../api/api";
 import '../scss/Messages.scss';
 
-import BasicScrollToBottom from "react-scroll-to-bottom";
-import {TabScrollButton} from "@material-ui/core";
-
 const Messages = ({conversationId, reload, sender, receiver, newMessage}) => {
     const [messages, setMessages] = useState([]);
 
