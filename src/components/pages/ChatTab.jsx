@@ -87,7 +87,7 @@ const ChatTab = () => {
     }
 
     const sendMessage = () => {
-        if (chatUser != null && user != null && chat !== "") {
+        if (chatUser !== null && user != null && chat !== "") {
             const messagePacket = {
                 id_sender: user._id,
                 id_receiver: chatUser._id,

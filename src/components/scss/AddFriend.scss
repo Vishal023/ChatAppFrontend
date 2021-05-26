@@ -2,23 +2,16 @@
  * FIXME FOR OVERFLOW I AM CAUSING
 */
 .AddFriend {
-  transition: all cubic-bezier(.68, -0.55, .27, 1.55) 1.2s;
   background-color: rgba(224, 224, 224, 0.9);
-  z-index: 10;
-  position: absolute;
-  width: calc(100vw - 360px);
-  height: 100vh;
-  top: 0;
-  padding-top: 2rem;
-
   &-search {
     padding: 1.5rem;
-    width: 100%;
-
     > div {
       margin: 10px 0;
     }
   }
+}
+.MuiPopover-paper{
+  width: 100vw;
 }
 
 .Request-container {
@@ -26,7 +19,14 @@
   letter-spacing: 2px;
   font-size: 1.5rem;
   font-family: Calibri, sans-serif;
-
+  h3{
+    background: #333;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    letter-spacing: 8px;
+  }
   .MuiButtonGroup-root {
     margin: 10px;
   }

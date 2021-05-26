@@ -12,7 +12,7 @@ const Login = () => {
     return (
         <div className={"Login flex flex-wrap flex-jc-c flex-ai-c"}>
             <div className={"Login-img flex flex-jc-c "}>
-                <img src={LoginLogo} alt=""/>
+                <img className={"Google-logo"} src={LoginLogo} alt=""/>
             </div>
             <div className={"Login-button flex flex-col"}>
                 <h3>

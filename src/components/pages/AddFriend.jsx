@@ -3,7 +3,7 @@
  */
 import React, {useEffect, useState} from 'react';
 import '../scss/AddFriend.scss';
-import {Avatar, Button, ButtonGroup, Snackbar, TextField} from "@material-ui/core";
+import {Avatar, Button, ButtonGroup, Popover, Snackbar, TextField} from "@material-ui/core";
 import apis from "../../api/api";
 import {Add, Close, CloseSharp} from "@material-ui/icons";
 
@@ -43,10 +43,7 @@ const AddFriend = ({close, display, handleRequest, requests}) => {
     };
 
     return (
-        <div style={{
-            left: display ? "360px" : "100%",
-            visibility: !display && "hidden"
-        }} className={"AddFriend flex flex-col"}>
+        <Popover className={"AddFriend"} open={display}>
             <div className="AddFriend-search">
                 <div className={"flex"}>
                     <TextField fullWidth label="Username"
@@ -63,39 +60,39 @@ const AddFriend = ({close, display, handleRequest, requests}) => {
                 </div>
                 {
                     allUsers && allUsers.map((user, index) => (
-                        <ButtonGroup>
-                            <Button key={index}
-                                    disableRipple
-                                    style={{justifyContent: "flex-start"}}
-                                    startIcon={<Avatar src={user.photos[0].value}> {user.displayName}</Avatar>}
-                                    endIcon={<Add/>}
-                                    onClick={() => {
-                                        sendRequest(user._id)
-                                    }}
-                                    className={"UserBox"}>
-                                {user.displayName}
-                            </Button>
-                        </ButtonGroup>
+                        <Button key={index}
+                                fullWidth
+                                variant={"outlined"}
+                                startIcon={<Avatar src={user.photos[0].value}> {user.displayName}</Avatar>}
+                                endIcon={<Add/>}
+                                onClick={() => {
+                                    sendRequest(user._id)
+                                }}
+                                className={""}>
+                            {user.displayName}
+                        </Button>
 
                     ))
                 }
             </div>
-            <div className="Request-container flex flex-col flex-jc-c flex-ai-c flex-wrap ">
+            <div className="Request-container flex flex-col flex-jc-c flex-ai-c">
                 {
                     requests.length > 0
                     &&
                     <>
                         <h3>REQUESTS</h3>
-                        <div>
+                        <div className={"flex flex-wrap"}>
                             {
-                                requests.map((req, index) => (
-                                    <ButtonGroup key={index} disableElevation variant="outlined" color="primary">
+                                [...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests].map((req, index) => (
+                                    <ButtonGroup className={"flex-grow"} key={index} disableElevation
+                                                 variant="outlined" color="primary">
                                         <Button>
                                             <Avatar src={req.photos[0].value}>
                                                 {req.displayName}
                                             </Avatar>
                                         </Button>
-                                        <Button color={"default"}>{req.displayName} </Button>
+                                        <Button className={"flex-grow"}
+                                                color={"default"}>{req.displayName} </Button>
                                         <Button onClick={() => {
                                             handleRequest(req._id, 1)
                                         }} color={"primary"}>
@@ -120,7 +117,7 @@ const AddFriend = ({close, display, handleRequest, requests}) => {
                 onClose={handleClose}
                 message="Request Sent"
             />
-        </div>
+        </Popover>
     );
 };
 
