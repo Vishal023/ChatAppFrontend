@@ -19,7 +19,7 @@ export const chatAppReducer = (state = initialState, action) => {
         case "SET_DISPLAY_USER":
             return {
                 ...state,
-                userDisplay: !state.userDisplay
+                userDisplay: action.payload
             }
         default:
             return state;

@@ -32,7 +32,7 @@ const ChatTab = () => {
             <MoreHoriz/>
         </IconButton>,
         <IconButton key={5} onClick={() => {
-            dispatch(toggleDisplay());
+            dispatch(toggleDisplay(false));
         }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
             <ArrowBack/>
         </IconButton>,

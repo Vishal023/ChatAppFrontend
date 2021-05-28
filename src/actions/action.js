@@ -12,8 +12,9 @@ export const setCurrentUser = (user) => {
     }
 };
 
-export const toggleDisplay = () => {
+export const toggleDisplay = (show) => {
     return {
-        type: "SET_DISPLAY_USER"
+        type: "SET_DISPLAY_USER",
+        payload: show
     }
 };

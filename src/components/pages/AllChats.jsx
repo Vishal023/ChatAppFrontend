@@ -25,7 +25,7 @@ const AllChats = () => {
 
     const setChatUser = (idx) => {
         dispatch(setCurrentUser(users[idx]));
-        dispatch(toggleDisplay());
+        dispatch(toggleDisplay(true));
     };
 
     return (
