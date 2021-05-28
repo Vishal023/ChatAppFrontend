@@ -6,6 +6,7 @@ const Messages = ({conversationId, reload, sender, receiver, newMessage}) => {
     const [messages, setMessages] = useState([]);
 
     const scrollHere = useRef();
+    const messageContainerRef = useRef();
 
     useEffect(() => {
         (async () => {
@@ -24,13 +25,14 @@ const Messages = ({conversationId, reload, sender, receiver, newMessage}) => {
             .catch(err => console.log(err));
         }
         fetchConversation().then(()=>{
-            scrollHere.current.scrollIntoView({behavior: 'smooth'});
+            const stickBottom = messageContainerRef.current;
+            stickBottom.scrollTop = stickBottom.scrollHeight - stickBottom.clientHeight;
         });
     }, [conversationId]);
 
     return (
         <div className="Messages">
-            <div className="Messages-container flex flex-col">
+            <div ref={messageContainerRef} className="Messages-container flex flex-col">
                 {
                     messages.length > 0 &&
                     messages.map((message, index) => (
