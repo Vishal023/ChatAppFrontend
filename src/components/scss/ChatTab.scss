@@ -1,9 +1,13 @@
+@import "variable";
 .ChatTab {
   flex: 1;
   width: 100%;
   min-width: 360px;
 
   &-noTabOpen {
+    /*
+    FIXME
+    */
     padding: 2rem;
     font-weight: bolder;
     font-size: 1.5rem;
@@ -13,14 +17,14 @@
   }
 
   .Chat {
-    background-color: #f7f7f7;
+    background-color: $white;
     flex-grow: 1;
   }
 
   .Message-type {
     height: 80px;
-    background-color: #f0f2f5;
-    padding: 10px;
+    background-color: $primary-white;
+    padding: $pad-xlg;
 
     textarea {
       resize: none;
@@ -29,9 +33,9 @@
       outline: none;
       border: none;
       background-color: #e0e0e0;
-      font-size: 1.2rem;
+      font-size:$font-med;
       width: 100%;
-      border-radius: 5px;
+      border-radius: $radius-sm;
     }
 
     button {
@@ -39,10 +43,11 @@
     }
   }
 }
+
 @media only screen and (max-width: 720px) {
-  .ChatTab{
+  .ChatTab {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     z-index: 1000000000000000;
   }

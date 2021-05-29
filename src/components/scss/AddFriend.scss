@@ -1,12 +1,10 @@
-/**
- * FIXME FOR OVERFLOW I AM CAUSING
-*/
+@import "variable";
 .AddFriend {
   background-color: rgba(224, 224, 224, 0.9);
   &-search {
-    padding: 1.5rem;
+    padding:$pad-sm;
     > div {
-      margin: 10px 0;
+      margin: $mar-sm 0;
     }
   }
 }
@@ -15,9 +13,9 @@
 }
 
 .Request-container {
-  padding: 0.75rem;
-  letter-spacing: 2px;
-  font-size: 1.5rem;
+  padding:$pad-sm;
+  letter-spacing: $letter-sp-sm;
+  font-size: $font-med;
   font-family: Calibri, sans-serif;
   h3{
     background: #333;
@@ -25,9 +23,9 @@
     text-align: center;
     padding: 10px;
     color: #fff;
-    letter-spacing: 8px;
+    letter-spacing: $letter-sp-lg;
   }
   .MuiButtonGroup-root {
-    margin: 10px;
+    margin: $mar-sm 0;
   }
 }

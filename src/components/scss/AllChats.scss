@@ -1,14 +1,20 @@
+@import "variable";
 .AllChats {
   flex-grow: 1;
-  background-color: #f0f2f5;
-  padding: 0.75rem;
+  background-color: $primary-white;
+  padding: $pad-sm;
   overflow-y: scroll;
+
   .UserBox {
-    font-size: 1rem;
-    border-radius: 10px;
-    margin: 0.1rem auto;
-    padding: .5rem .75rem;
+    font-size: $font-sm;
+    border-radius: $radius-lg;
+    margin: $mar-sm auto;
+    padding: $pad-sm $pad-med;
     justify-content: flex-start;
     text-transform: capitalize;
+  }
+  .UserBox.active{
+    box-shadow: 2px 2px 5px rgba(0, 0, 255, 0.1),
+    inset 5px 5px 8px rgba(0, 0, 0, 0.2);
   }
 }

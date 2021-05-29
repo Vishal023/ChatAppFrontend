@@ -1,12 +1,13 @@
+@import "variable";
 .Login {
-  background-color: rgb(6, 22, 33);
+  background-color: $dark-blue;
   width: 100%;
   height: 100vh;
   &-card {
     z-index: 1;
-    padding: 2rem;
-    margin: 10px;
-    border-radius: 10px;
+    padding: $pad-xlg;
+    margin: $mar-med;
+    border-radius: $radius-lg;
     box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1),
     inset 5px 5px 8px rgba(0, 0, 0, 0.2);
   }
@@ -25,17 +26,17 @@
 
   &-button {
     text-align: center;
-    font-size: 1.75rem;
+    font-size: $font-lg;
     text-transform: uppercase;
     font-family: Calibri, sans-serif;
-    letter-spacing: 5px;
-    margin: 20px;
+    letter-spacing: $letter-sp-sm;
+    margin: $mar-med 0;
 
     h3 {
-      margin-bottom: 2rem;
-      color: #d0d0d0;
+      margin-bottom: $mar-sm;
+      color: $white-dark;
       position: relative;
-      top: -999px;
+      top: 0;
       visibility: hidden;
       animation: bounce 2s cubic-bezier(0.6, 1.7, 0.3, 0.72) forwards;
       animation-delay: 1s;
@@ -47,50 +48,16 @@
       visibility: hidden;
       animation: slide-in 1.5s cubic-bezier(0.6, 1.7, 0.3, 0.72) forwards;
       animation-delay: 1s;
-      padding: 10px;
-      background-color: #d0d0d0;
-      font-family: Calibri, sans-serif;
-      font-size: 1.12rem;
+      padding: $pad-sm;
+      background-color: $white-dark;
+      font-family: $font-fam-c;
+      font-size: $font-med;
+      letter-spacing: $letter-sp-sm;
     }
 
     button:hover {
-      background-color: #DB4437;
-      color: #d0d0d0;
+      background-color: $orange;
+      color: $white-dark;
     }
-  }
-}
-
-@keyframes appear {
-  from {
-    width: 0;
-    height: 0;
-    transform: rotate(-180deg);
-  }
-  to {
-    width: 100%;
-    height: 100%;
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes bounce {
-  from {
-    visibility: hidden;
-    top: -999px;
-  }
-  to {
-    visibility: visible;
-    top: 0;
-  }
-}
-
-@keyframes slide-in {
-  from {
-    visibility: hidden;
-    left: 100%;
-  }
-  to {
-    visibility: visible;
-    left: 0;
   }
 }

@@ -1,54 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-html,body{
+@import "./components/scss/variable";
+@import "global";
+
+html {
   font-size: 100%;
-  font-family: 'Padauk', sans-serif;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.flex {
-  display: flex;
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
 
-  &-wrap {
-    flex-wrap: wrap;
-  }
-
-  &-col {
-    flex-direction: column;
-  }
-
-  &-jc-sb {
-    justify-content: space-between;
-  }
-  &-jc-sa{
-    justify-content: space-around;
-  }
-
-  &-jc-fs {
-    justify-content: flex-start;
-  }
-
-  &-jc-fe {
-    justify-content: flex-end;
-  }
-
-  &-jc-c {
-    justify-content: center;
-  }
-
-  &-ai-c {
-    align-items: center;
-  }
-
-
-  &-ai-fe{
-    align-items: flex-end;
-  }
-
-  &-grow{
-    flex-grow: 1;
-  }
+body {
+  font-family: $font_fam;
+  overflow: hidden;
 }

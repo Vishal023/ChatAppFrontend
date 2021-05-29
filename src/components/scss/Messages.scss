@@ -1,3 +1,4 @@
+@import "variable";
 .Messages{
   flex-grow: 1;
   .Messages-container {
@@ -6,9 +7,9 @@
     .Message {
       padding: 1.125rem;
       margin: 1.5rem;
-      color: #131313;
-      letter-spacing: 1px;
-      font-size: 1.25rem;
+      color: $black;
+      letter-spacing: $letter-sp-xsm;
+      font-size: $font-lg;
       word-break: break-all;
       white-space: normal;
     }

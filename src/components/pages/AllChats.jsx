@@ -8,7 +8,7 @@ import apis from "../../api/api";
 const AllChats = () => {
     const [users, setUser] = useState([]);
 
-    const {user} = useSelector(state => state.chatAppReducer);
+    const {user, chatUser} = useSelector(state => state.chatAppReducer);
 
 
     useEffect(() => {
@@ -31,14 +31,14 @@ const AllChats = () => {
     return (
         <div className={"AllChats flex flex-col flex-ai-c"}>
             {
-                users.map((user, index) => (
+                user && users.map((user, index) => (
                         <Button fullWidth
                                 key={index}
                                 onClick={() => {
                                     setChatUser(index)
                                 }}
                                 startIcon={<Avatar src={user.photos[0].value}> {user.displayName}</Avatar>}
-                                className={"UserBox"}>
+                                className={`UserBox ${chatUser && chatUser._id === user._id ? "active" : ""}`}>
                             {user.displayName}
                         </Button>
                     )

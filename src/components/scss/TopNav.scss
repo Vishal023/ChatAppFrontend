@@ -1,15 +1,19 @@
-.TopNav{
+@import "variable";
+
+.TopNav {
   height: 56px;
-  background-color: #f0f2f5;
+  background-color: $primary-white;
   padding: 0.5rem;
   width: 100%;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid $white-light;
   position: sticky;
   top: 0;
-  .MuiIconButton-root{
+
+  .MuiIconButton-root {
     padding: 4px 12px;
   }
-  nav{
+
+  nav {
     height: 100%;
   }
 }

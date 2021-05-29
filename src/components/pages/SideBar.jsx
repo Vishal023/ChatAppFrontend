@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import AllChats from "./AllChats";
 import TopNav from "./TopNav";
 import '../scss/SideBar.scss';
-import {Add, Close, MoreHoriz} from "@material-ui/icons";
+import {Add, Close, MoreHoriz, NightsStay, SettingsBrightness} from "@material-ui/icons";
 import {useSelector} from "react-redux";
 import AddFriend from "./AddFriend";
 import {IconButton} from "@material-ui/core";
@@ -26,7 +26,7 @@ const SideBar = () => {
         <IconButton key={2} onClick={() => {
             console.log("I am not set yet")
         }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
-            <MoreHoriz/>
+            <SettingsBrightness/>
         </IconButton>
     ];
 

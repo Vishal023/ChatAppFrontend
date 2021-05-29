@@ -1,0 +1,78 @@
+.flex {
+  display: flex;
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+
+  &-col {
+    flex-direction: column;
+  }
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+  &-jc-sa{
+    justify-content: space-around;
+  }
+
+  &-jc-fs {
+    justify-content: flex-start;
+  }
+
+  &-jc-fe {
+    justify-content: flex-end;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+
+
+  &-ai-fe{
+    align-items: flex-end;
+  }
+
+  &-grow{
+    flex-grow: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    width: 0;
+    height: 0;
+    transform: rotate(-180deg);
+  }
+  to {
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bounce {
+  from {
+    visibility: hidden;
+    top: -999px;
+  }
+  to {
+    visibility: visible;
+    top: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    visibility: hidden;
+    left: 100%;
+  }
+  to {
+    visibility: visible;
+    left: 0;
+  }
+}

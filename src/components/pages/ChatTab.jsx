@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import '../scss/ChatTab.scss';
-import {ArrowBack, MoreHoriz, Search, Send} from "@material-ui/icons";
+import {ArrowBack, Chat, MoreHoriz, Search, Send} from "@material-ui/icons";
 import {Button, IconButton, TextareaAutosize} from "@material-ui/core";
 import TopNav from "./TopNav";
 import {useDispatch, useSelector} from "react-redux";
 import apis from "../../api/api";
 import Messages from "./Messages";
 import Pusher from "pusher-js";
-import {toggleDisplay} from "../../actions/action";
+import {setCurrentUser, toggleDisplay} from "../../actions/action";
 
 const ChatTab = () => {
     const [active, setActive] = useState(false);
@@ -20,17 +20,6 @@ const ChatTab = () => {
     const dispatch = useDispatch();
 
     const buttons = [
-
-        <IconButton key={3} onClick={() => {
-            console.log("I am not set yet")
-        }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
-            <Search/>
-        </IconButton>,
-        <IconButton key={4} onClick={() => {
-            console.log("I am not set yet")
-        }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
-            <MoreHoriz/>
-        </IconButton>,
         <IconButton key={5} onClick={() => {
             dispatch(toggleDisplay(false));
         }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
