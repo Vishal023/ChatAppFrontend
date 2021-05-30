@@ -46,6 +46,9 @@ const AddFriend = ({close, display, handleRequest, requests}) => {
         <Popover className={"AddFriend"} open={display}>
             <div className="AddFriend-search">
                 <div className={"flex flex-col"}>
+                    <Button variant={"outlined"} startIcon={<CloseSharp/>} onClick={() => close()} style={{color: "red"}}>
+                        CLOSE
+                    </Button>
                     <span className="AddFriend-head">
                         <h3>SEARCH A USER</h3>
                     </span>
@@ -53,10 +56,7 @@ const AddFriend = ({close, display, handleRequest, requests}) => {
                         <TextField fullWidth label="Username" value={text}
                                    onChange={(e) => setText(e.target.value)} variant="outlined"
                                    placeholder={"Enter your friend's username/email"}/>
-                        <Button variant={"outlined"}
-                                onClick={() => close()} style={{color: "red"}}>
-                            <CloseSharp/>
-                        </Button>
+
                     </div>
                 </div>
                 {
