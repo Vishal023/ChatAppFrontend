@@ -1,13 +1,13 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../scss/ChatTab.scss';
-import {ArrowBack, Chat, MoreHoriz, Search, Send} from "@material-ui/icons";
+import {ArrowBack, Send} from "@material-ui/icons";
 import {Button, IconButton, TextareaAutosize} from "@material-ui/core";
 import TopNav from "./TopNav";
 import {useDispatch, useSelector} from "react-redux";
 import apis from "../../api/api";
 import Messages from "./Messages";
 import Pusher from "pusher-js";
-import {setCurrentUser, toggleDisplay} from "../../actions/action";
+import {toggleDisplay} from "../../actions/action";
 import {ReactComponent as ChatIcon} from "../assets/img/chat.svg";
 
 const ChatTab = () => {
