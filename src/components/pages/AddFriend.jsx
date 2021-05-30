@@ -45,45 +45,41 @@ const AddFriend = ({close, display, handleRequest, requests}) => {
     return (
         <Popover className={"AddFriend"} open={display}>
             <div className="AddFriend-search">
-                <div className={"flex"}>
-                    <TextField fullWidth label="Username"
-                               value={text}
-                               onChange={(e) => {
-                                   setText(e.target.value)
-                               }}
-                               variant="outlined" placeholder={"Enter your friend's username/email"}/>
-                    <Button onClick={() => {
-                        close()
-                    }} style={{color: "red"}}>
-                        <CloseSharp/>
-                    </Button>
+                <div className={"flex flex-col"}>
+                    <span className="AddFriend-head">
+                        <h3>SEARCH A USER</h3>
+                    </span>
+                    <div className={"flex"}>
+                        <TextField fullWidth label="Username" value={text}
+                                   onChange={(e) => setText(e.target.value)} variant="outlined"
+                                   placeholder={"Enter your friend's username/email"}/>
+                        <Button variant={"outlined"}
+                                onClick={() => close()} style={{color: "red"}}>
+                            <CloseSharp/>
+                        </Button>
+                    </div>
                 </div>
                 {
                     allUsers && allUsers.map((user, index) => (
-                        <Button key={index}
-                                fullWidth
-                                variant={"outlined"}
+                        <Button key={index} fullWidth variant={"outlined"}
                                 startIcon={<Avatar src={user.photos[0].value}> {user.displayName}</Avatar>}
-                                endIcon={<Add/>}
-                                onClick={() => {
-                                    sendRequest(user._id)
-                                }}
-                                className={""}>
+                                endIcon={<Add/>} onClick={() => sendRequest(user._id)}>
                             {user.displayName}
                         </Button>
-
                     ))
                 }
             </div>
-            <div className="Request-container flex flex-col flex-jc-c flex-ai-c">
+            <div className="Request-container">
                 {
                     requests.length > 0
                     &&
-                    <>
-                        <h3>REQUESTS</h3>
+                    <div className={"flex flex-col"}>
+                        <span className="AddFriend-head">
+                            <h3>REQUESTS</h3>
+                        </span>
                         <div className={"flex flex-wrap"}>
                             {
-                                [...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests, ...requests].map((req, index) => (
+                                requests.map((req, index) => (
                                     <ButtonGroup className={"flex-grow"} key={index} disableElevation
                                                  variant="outlined" color="primary">
                                         <Button>
@@ -107,7 +103,7 @@ const AddFriend = ({close, display, handleRequest, requests}) => {
                                 ))
                             }
                         </div>
-                    </>
+                    </div>
                 }
             </div>
             <Snackbar

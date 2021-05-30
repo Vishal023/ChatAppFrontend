@@ -1,31 +1,42 @@
 @import "variable";
+
 .AddFriend {
   background-color: rgba(224, 224, 224, 0.9);
+
   &-search {
-    padding:$pad-sm;
+    padding: $pad-sm;
+
     > div {
       margin: $mar-sm 0;
     }
   }
+
+  &-head {
+    margin: $mar-sm 0;
+    width: fit-content;
+    min-width: 250px;
+    background: $orange;
+    border-radius: $radius-sm;
+    padding: 10px;
+  }
+
+  h3 {
+    color: #fff;
+    letter-spacing: $letter-sp-lg;
+  }
 }
-.MuiPopover-paper{
+
+.MuiPopover-paper {
   width: 100vw;
 }
 
 .Request-container {
-  padding:$pad-sm;
+  padding: $pad-sm;
   letter-spacing: $letter-sp-sm;
   font-size: $font-med;
   font-family: Calibri, sans-serif;
-  h3{
-    background: #333;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    color: #fff;
-    letter-spacing: $letter-sp-lg;
-  }
+
   .MuiButtonGroup-root {
-    margin: $mar-sm 0;
+    margin: $mar-sm $mar-sm $mar-sm 0;
   }
 }

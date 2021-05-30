@@ -5,25 +5,24 @@
     overflow-y: auto;
     height: calc(100vh - 56px - 80px);
     .Message {
-      padding: 1.125rem;
-      margin: 1.5rem;
+      padding: $pad-sm;
+      margin: $mar-sm;
+      border-radius:$radius-lg;
       color: $black;
       letter-spacing: $letter-sp-xsm;
-      font-size: $font-lg;
+      font-size: $font-med;
       word-break: break-all;
       white-space: normal;
     }
 
     .sender {
-      border-radius: 10px 10px 10px 10px;
-      background-color: #dddddd;
+      background-color: #f0f2f5;
       max-width: 50%;
       margin-left: auto;
     }
 
     .receiver {
-      border-radius: 10px 10px 10px 10px;
-      background-color: #e0ece4;
+      background-color: $lightGreen ;
       max-width: 50%;
       margin-right: auto;
     }

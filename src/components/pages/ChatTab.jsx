@@ -10,10 +10,8 @@ import Pusher from "pusher-js";
 import {setCurrentUser, toggleDisplay} from "../../actions/action";
 
 const ChatTab = () => {
-    const [active, setActive] = useState(false);
     const [conversationId, setConversationId] = useState("");
     const [chat, setChat] = useState("");
-    const [reload, setReload] = useState(false);
     const [newMessage, setNewMessage] = useState({});
     const {userDisplay: display} = useSelector(state => state.chatAppReducer);
 
@@ -30,15 +28,6 @@ const ChatTab = () => {
     const {chatUser} = useSelector(state => state.chatAppReducer);
     const {user} = useSelector(state => state.chatAppReducer);
 
-
-    useEffect(() => {
-        setChat("");
-        if (chatUser !== null) {
-            setActive(true);
-        } else {
-            setActive(false);
-        }
-    }, [chatUser]);
     useEffect(() => {
         if (chatUser != null && user != null) {
             const userId = user._id;
@@ -66,14 +55,11 @@ const ChatTab = () => {
         return () => {
             channel.unbind_all();
             channel.unsubscribe();
+
         }
 
     }, [conversationId]);
 
-
-    const triggerReload = async () => {
-        setReload(!reload);
-    }
 
     const sendMessage = () => {
         if (chatUser !== null && user != null && chat !== "") {
@@ -85,7 +71,6 @@ const ChatTab = () => {
             apis.sendMessage(messagePacket, conversationId)
                 .then(async (res) => {
                     if (res.data.status) {
-                        await triggerReload();
                         setChat("");
                     }
                 })
@@ -97,18 +82,17 @@ const ChatTab = () => {
 
 
     return (
-        <div style={{display: !display && "none"}} className={"ChatTab flex flex-ai-c flex-jc-c"}>
+        <div className={"ChatTab flex flex-ai-c flex-jc-c"}>
             {
-                !active && !display
+                !display
                     ?
                     <>
                         <p className={"ChatTab-noTabOpen"}>Click on a chat to start chatting</p>
                     </>
                     :
-                    <div className="Chat flex flex-col">
+                    <div style={{display: !display && "none"}} className="Chat flex flex-col">
                         <TopNav user={chatUser} buttons={buttons}/>
-                        <Messages reload={reload}
-                                  receiver={chatUser._id}
+                        <Messages receiver={chatUser._id}
                                   sender={user._id}
                                   newMessage={newMessage}
                                   conversationId={conversationId}/>

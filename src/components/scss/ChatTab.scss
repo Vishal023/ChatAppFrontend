@@ -5,9 +5,6 @@
   min-width: 360px;
 
   &-noTabOpen {
-    /*
-    FIXME
-    */
     padding: 2rem;
     font-weight: bolder;
     font-size: 1.5rem;
@@ -50,5 +47,8 @@
     top: 0;
     left: 0;
     z-index: 1000000000000000;
+    &-noTabOpen {
+      display: none;
+    }
   }
 }

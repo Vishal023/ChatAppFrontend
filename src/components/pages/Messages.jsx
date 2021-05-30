@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import apis from "../../api/api";
 import '../scss/Messages.scss';
 
-const Messages = ({conversationId, reload, sender, receiver, newMessage}) => {
+const Messages = ({conversationId, sender, newMessage}) => {
     const [messages, setMessages] = useState([]);
 
     const scrollHere = useRef();
@@ -17,14 +17,14 @@ const Messages = ({conversationId, reload, sender, receiver, newMessage}) => {
 
 
     useEffect(() => {
-        const fetchConversation = async () =>{
+        const fetchConversation = async () => {
             await apis.getMessage(conversationId)
-            .then(r => {
-                if (r.status) setMessages(r.data[0].messages);
-            })
-            .catch(err => console.log(err));
+                .then(r => {
+                    if (r.status) setMessages(r.data[0].messages);
+                })
+                .catch(err => console.log(err));
         }
-        fetchConversation().then(()=>{
+        fetchConversation().then(() => {
             const stickBottom = messageContainerRef.current;
             stickBottom.scrollTop = stickBottom.scrollHeight - stickBottom.clientHeight;
         });
