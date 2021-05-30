@@ -8,6 +8,7 @@ import apis from "../../api/api";
 import Messages from "./Messages";
 import Pusher from "pusher-js";
 import {setCurrentUser, toggleDisplay} from "../../actions/action";
+import {ReactComponent as ChatIcon} from "../assets/img/chat.svg";
 
 const ChatTab = () => {
     const [conversationId, setConversationId] = useState("");
@@ -86,9 +87,10 @@ const ChatTab = () => {
             {
                 !display
                     ?
-                    <>
-                        <p className={"ChatTab-noTabOpen"}>Click on a chat to start chatting</p>
-                    </>
+                    <div className={"ChatTab-noTabOpen flex flex-ai-c flex-jc-c"}>
+                        <ChatIcon/>
+                        <p>Click on a chat to start chatting</p>
+                    </div>
                     :
                     <div style={{display: !display && "none"}} className="Chat flex flex-col">
                         <TopNav user={chatUser} buttons={buttons}/>

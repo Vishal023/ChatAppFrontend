@@ -3,7 +3,7 @@
   flex-grow: 1;
   background-color: $primary-white;
   padding: $pad-sm;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   .UserBox {
     font-size: $font-sm;
