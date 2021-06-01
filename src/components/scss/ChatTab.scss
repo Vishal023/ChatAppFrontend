@@ -55,7 +55,7 @@
     left: 0;
     z-index: 1000000000000000;
     &-noTabOpen {
-      display: none;
+      display: none !important;
     }
   }
 }

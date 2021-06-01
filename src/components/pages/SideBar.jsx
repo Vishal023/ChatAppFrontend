@@ -9,14 +9,17 @@ import {IconButton} from "@material-ui/core";
 import apis from "../../api/api";
 
 const SideBar = () => {
+
     const {user} = useSelector(state => state.chatAppReducer);
 
     const [requests, setRequests] = useState([]);
 
     const [searchFriend, setSearchFriend] = useState(false);
 
+    const [searchQuery, setSearchQuery] = useState("");
+
     const buttons = [
-        <IconButton  key={1} onClick={() => {
+        <IconButton key={1} onClick={() => {
             setSearchFriend(!searchFriend)
         }} style={{backgroundColor: "transparent", color: "#333"}} size={"medium"}>
             {
@@ -59,9 +62,10 @@ const SideBar = () => {
         <div className={"SideBar flex flex-col"}>
             <TopNav user={user} buttons={buttons}/>
             <div className="inputBox SideBar-search flex flex-ai-c flex-jc-c">
-                <input type="search" placeholder={"Search or Start a new Chat"}/>
+                <input type="search" value={searchQuery} onChange={event => setSearchQuery(event.target.value)}
+                       placeholder={"Search or Start a new Chat"}/>
             </div>
-            <AllChats/>
+            <AllChats filter={searchQuery}/>
             <AddFriend display={searchFriend}
                        handleRequest={handleRequest}
                        requests={requests}
